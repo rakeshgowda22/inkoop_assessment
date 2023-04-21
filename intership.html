@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>intership project</title>
+  </head>
+  <body>
+    <div>
+    
+      <input type="number" id="number-input" name="number-input" placeholder="enter a number" >
+      <p id="error-message"></p>
+      <p id="result-message"></p>
+    </div>
+    <script>
+      const inputField = document.getElementById('number-input');
+      const errorMessage = document.getElementById('error-message');
+      const resultMessage = document.getElementById('result-message');
+
+      inputField.addEventListener('input', () => {
+        const inputValue = parseInt(inputField.value);
+
+        if (inputValue < 0) {
+          resultMessage.textContent = 'enter a positive value';
+        } else {
+          if (inputValue % 2 === 0) {
+            const evenNumbers = [inputValue + 2, inputValue + 4, inputValue + 6];
+            resultMessage.textContent =   evenNumbers.join(', ');
+          } else {
+            const oddNumbers = [inputValue + 2, inputValue + 4, inputValue + 6];
+            resultMessage.textContent =   oddNumbers.join(', ');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
